@@ -2,6 +2,10 @@
 
 This script helps you find the best DNS server to use for specific domains, such as those related to online gaming, by measuring latency through ping tests. The results are displayed in a formatted table, showing which DNS servers provide the best performance for each domain.
 
+## Screenshot
+
+![Extension Screenshot](./demo.png)
+
 ### Features
 
 *   Tests multiple DNS servers against specified domains.
@@ -71,5 +75,3 @@ Final Steps for GitHub:
 *   Add this `README.md` file and your updated script to your GitHub repository.
 *   Update the repository description to clearly explain the purpose of the project.
 *   Include relevant tags (e.g., `Node.js`, `DNS`, `Latency Test`, `Gaming`) to make the repository easier to find.
-
-This `README.md` file provides a clear overview, installation steps, usage instructions, and other key details that are essential for users.
