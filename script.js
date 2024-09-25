@@ -6,24 +6,34 @@ const dnsServers = [
     ['178.22.122.100', '185.51.200.2', 'Shecan'],
     ['10.202.10.202', '10.202.10.102', '403 online'],
     ['78.157.42.100', '78.157.42.101', 'Electro Team'],
-    ['185.55.226.26', '185.55.225.25', 'Begzar'],
     ['10.202.10.10', '10.202.10.11', 'Radar Game'],
+    ['185.55.226.26', '185.55.225.25', 'Begzar'],
     ['208.67.222.222', '208.67.220.220', 'OpenDNS'],
-    ['1.1.1.1', '1.0.0.1', 'Cloudflare'],
-    ['8.8.8.8', '8.8.4.4', 'Google'],
     ['8.26.56.10', '8.20.247.10', 'Comodo Secure'],
     ['9.9.9.9', '149.112.112.112', 'Quad9'],
     ['129.250.35.250', '129.250.35.251', 'NTT'],
     ['204.117.214.10', '199.2.252.10', 'Sprintlink'],
+    ['1.1.1.1', '1.0.0.1', 'Cloudflare'],
+    ['8.8.8.8', '8.8.4.4', 'Google'],
 ];
 
-// Replace with actual domain names you want to test
-const domains = []; // Add domains like 'epicgames.com', 'fortnite.com'
+// Fortnite data centers
+const domains = [
+    'ping-nae.ds.on.epicgames.com', // NA-East
+    'ping-nac.ds.on.epicgames.com', // NA-Central
+    'ping-naw.ds.on.epicgames.com', // NA-West
+    'ping-eu.ds.on.epicgames.com', // Europe
+    'ping-oce.ds.on.epicgames.com', // Oceania
+    'ping-br.ds.on.epicgames.com', // Brazil
+    'ping-asia.ds.on.epicgames.com', // Asia
+    'ping-me.ds.on.epicgames.com', // Middle East
+];
 
-// Function to ping an IP address and measure latency
+// Function to ping an IP address and measure latency (according to epicgames blog, send 50 packets)
+// read more: https://www.epicgames.com/help/en-US/c-Category_Fortnite/c-Fortnite_TechnicalSupport/understanding-latency-or-ping-in-fortnite-a000084889
 const pingServer = (ip) => {
     return new Promise((resolve) => {
-        exec(`ping ${process.platform === 'win32' ? '-n' : '-c'} 4 ${ip}`, (error, stdout) => {
+        exec(`ping ${process.platform === 'win32' ? '-n' : '-c'} 50 ${ip}`, (error, stdout) => {
             const match = stdout.match(/Average = (\d+)ms|time=(\d+\.?\d*) ms/);
             const latency = match ? parseFloat(match[1] || match[2]) : Infinity;
             resolve({ ip, latency });
