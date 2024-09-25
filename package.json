@@ -1,0 +1,36 @@
+{
+  "name": "dns-latency-tester",
+  "version": "1.0.0",
+  "description": "A Node.js script to test and compare DNS server latency for specified domains.",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "author": {
+    "name": "Ali Houshyari Pour",
+    "email": "alihoushyaripour@gmail.com",
+    "url": "https://github.com/alihoushy/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cli-table3": "^0.6.5",
+    "ora": "^8.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alihoushy/dns-latency-tester"
+  },
+  "keywords": [
+    "DNS",
+    "latency",
+    "test",
+    "ping",
+    "Node.js",
+    "network",
+    "performance"
+  ],
+  "bugs": {
+    "url": "https://github.com/alihoushy/dns-latency-tester/issues"
+  },
+  "homepage": "https://github.com/alihoushy/dns-latency-tester#readme"
+}
